@@ -1,4 +1,3 @@
-const baseUrl = 'https://reqres.in';
-const listUsers = '$baseUrl/api/users?page=1&per_page=10';
-const getUser = '$baseUrl/api/users/2';
-const inputUser = '$baseUrl/api/users';
+const apiKey = '&appid=8f88f535603eaec43f2f8cc87ceea901';
+const baseUrl = 'api.openweathermap.org/data/2.5';
+const forecast = '$baseUrl/forecast?q=';
