@@ -11,7 +11,7 @@ part 'weather_state.dart';
 part 'weather_bloc.freezed.dart';
 
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
-  late String cityName;
+  String? cityName;
   WeatherBloc() : super(const WeatherState.initial()) {
     on<FetchWeatherEvent>(_onFetchWeatherEvent);
   }
