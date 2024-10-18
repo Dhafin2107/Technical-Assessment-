@@ -16,44 +16,49 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$UserEvent {
-  String get text => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String text) onUserEvent,
+    required TResult Function(String provinceId) provinceSelected,
+    required TResult Function(String? city) citySelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String text)? onUserEvent,
+    TResult? Function(String provinceId)? provinceSelected,
+    TResult? Function(String? city)? citySelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String text)? onUserEvent,
+    TResult Function(String provinceId)? provinceSelected,
+    TResult Function(String? city)? citySelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(OnUserEvent value) onUserEvent,
+    required TResult Function(ProvinceSelected value) provinceSelected,
+    required TResult Function(CitySelected value) citySelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(OnUserEvent value)? onUserEvent,
+    TResult? Function(ProvinceSelected value)? provinceSelected,
+    TResult? Function(CitySelected value)? citySelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnUserEvent value)? onUserEvent,
+    TResult Function(ProvinceSelected value)? provinceSelected,
+    TResult Function(CitySelected value)? citySelected,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  /// Create a copy of UserEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $UserEventCopyWith<UserEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -61,8 +66,6 @@ mixin _$UserEvent {
 abstract class $UserEventCopyWith<$Res> {
   factory $UserEventCopyWith(UserEvent value, $Res Function(UserEvent) then) =
       _$UserEventCopyWithImpl<$Res, UserEvent>;
-  @useResult
-  $Res call({String text});
 }
 
 /// @nodoc
@@ -77,27 +80,13 @@ class _$UserEventCopyWithImpl<$Res, $Val extends UserEvent>
 
   /// Create a copy of UserEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? text = null,
-  }) {
-    return _then(_value.copyWith(
-      text: null == text
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$OnUserEventImplCopyWith<$Res>
-    implements $UserEventCopyWith<$Res> {
+abstract class _$$OnUserEventImplCopyWith<$Res> {
   factory _$$OnUserEventImplCopyWith(
           _$OnUserEventImpl value, $Res Function(_$OnUserEventImpl) then) =
       __$$OnUserEventImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String text});
 }
@@ -162,6 +151,8 @@ class _$OnUserEventImpl implements OnUserEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String text) onUserEvent,
+    required TResult Function(String provinceId) provinceSelected,
+    required TResult Function(String? city) citySelected,
   }) {
     return onUserEvent(text);
   }
@@ -170,6 +161,8 @@ class _$OnUserEventImpl implements OnUserEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String text)? onUserEvent,
+    TResult? Function(String provinceId)? provinceSelected,
+    TResult? Function(String? city)? citySelected,
   }) {
     return onUserEvent?.call(text);
   }
@@ -178,6 +171,8 @@ class _$OnUserEventImpl implements OnUserEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String text)? onUserEvent,
+    TResult Function(String provinceId)? provinceSelected,
+    TResult Function(String? city)? citySelected,
     required TResult orElse(),
   }) {
     if (onUserEvent != null) {
@@ -190,6 +185,8 @@ class _$OnUserEventImpl implements OnUserEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(OnUserEvent value) onUserEvent,
+    required TResult Function(ProvinceSelected value) provinceSelected,
+    required TResult Function(CitySelected value) citySelected,
   }) {
     return onUserEvent(this);
   }
@@ -198,6 +195,8 @@ class _$OnUserEventImpl implements OnUserEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(OnUserEvent value)? onUserEvent,
+    TResult? Function(ProvinceSelected value)? provinceSelected,
+    TResult? Function(CitySelected value)? citySelected,
   }) {
     return onUserEvent?.call(this);
   }
@@ -206,6 +205,8 @@ class _$OnUserEventImpl implements OnUserEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnUserEvent value)? onUserEvent,
+    TResult Function(ProvinceSelected value)? provinceSelected,
+    TResult Function(CitySelected value)? citySelected,
     required TResult orElse(),
   }) {
     if (onUserEvent != null) {
@@ -218,14 +219,307 @@ class _$OnUserEventImpl implements OnUserEvent {
 abstract class OnUserEvent implements UserEvent {
   const factory OnUserEvent(final String text) = _$OnUserEventImpl;
 
-  @override
   String get text;
 
   /// Create a copy of UserEvent
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$OnUserEventImplCopyWith<_$OnUserEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ProvinceSelectedImplCopyWith<$Res> {
+  factory _$$ProvinceSelectedImplCopyWith(_$ProvinceSelectedImpl value,
+          $Res Function(_$ProvinceSelectedImpl) then) =
+      __$$ProvinceSelectedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String provinceId});
+}
+
+/// @nodoc
+class __$$ProvinceSelectedImplCopyWithImpl<$Res>
+    extends _$UserEventCopyWithImpl<$Res, _$ProvinceSelectedImpl>
+    implements _$$ProvinceSelectedImplCopyWith<$Res> {
+  __$$ProvinceSelectedImplCopyWithImpl(_$ProvinceSelectedImpl _value,
+      $Res Function(_$ProvinceSelectedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? provinceId = null,
+  }) {
+    return _then(_$ProvinceSelectedImpl(
+      null == provinceId
+          ? _value.provinceId
+          : provinceId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ProvinceSelectedImpl implements ProvinceSelected {
+  const _$ProvinceSelectedImpl(this.provinceId);
+
+  @override
+  final String provinceId;
+
+  @override
+  String toString() {
+    return 'UserEvent.provinceSelected(provinceId: $provinceId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ProvinceSelectedImpl &&
+            (identical(other.provinceId, provinceId) ||
+                other.provinceId == provinceId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, provinceId);
+
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ProvinceSelectedImplCopyWith<_$ProvinceSelectedImpl> get copyWith =>
+      __$$ProvinceSelectedImplCopyWithImpl<_$ProvinceSelectedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String text) onUserEvent,
+    required TResult Function(String provinceId) provinceSelected,
+    required TResult Function(String? city) citySelected,
+  }) {
+    return provinceSelected(provinceId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String text)? onUserEvent,
+    TResult? Function(String provinceId)? provinceSelected,
+    TResult? Function(String? city)? citySelected,
+  }) {
+    return provinceSelected?.call(provinceId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String text)? onUserEvent,
+    TResult Function(String provinceId)? provinceSelected,
+    TResult Function(String? city)? citySelected,
+    required TResult orElse(),
+  }) {
+    if (provinceSelected != null) {
+      return provinceSelected(provinceId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(OnUserEvent value) onUserEvent,
+    required TResult Function(ProvinceSelected value) provinceSelected,
+    required TResult Function(CitySelected value) citySelected,
+  }) {
+    return provinceSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(OnUserEvent value)? onUserEvent,
+    TResult? Function(ProvinceSelected value)? provinceSelected,
+    TResult? Function(CitySelected value)? citySelected,
+  }) {
+    return provinceSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(OnUserEvent value)? onUserEvent,
+    TResult Function(ProvinceSelected value)? provinceSelected,
+    TResult Function(CitySelected value)? citySelected,
+    required TResult orElse(),
+  }) {
+    if (provinceSelected != null) {
+      return provinceSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ProvinceSelected implements UserEvent {
+  const factory ProvinceSelected(final String provinceId) =
+      _$ProvinceSelectedImpl;
+
+  String get provinceId;
+
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ProvinceSelectedImplCopyWith<_$ProvinceSelectedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CitySelectedImplCopyWith<$Res> {
+  factory _$$CitySelectedImplCopyWith(
+          _$CitySelectedImpl value, $Res Function(_$CitySelectedImpl) then) =
+      __$$CitySelectedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? city});
+}
+
+/// @nodoc
+class __$$CitySelectedImplCopyWithImpl<$Res>
+    extends _$UserEventCopyWithImpl<$Res, _$CitySelectedImpl>
+    implements _$$CitySelectedImplCopyWith<$Res> {
+  __$$CitySelectedImplCopyWithImpl(
+      _$CitySelectedImpl _value, $Res Function(_$CitySelectedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? city = freezed,
+  }) {
+    return _then(_$CitySelectedImpl(
+      freezed == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CitySelectedImpl implements CitySelected {
+  const _$CitySelectedImpl(this.city);
+
+  @override
+  final String? city;
+
+  @override
+  String toString() {
+    return 'UserEvent.citySelected(city: $city)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CitySelectedImpl &&
+            (identical(other.city, city) || other.city == city));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, city);
+
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CitySelectedImplCopyWith<_$CitySelectedImpl> get copyWith =>
+      __$$CitySelectedImplCopyWithImpl<_$CitySelectedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String text) onUserEvent,
+    required TResult Function(String provinceId) provinceSelected,
+    required TResult Function(String? city) citySelected,
+  }) {
+    return citySelected(city);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String text)? onUserEvent,
+    TResult? Function(String provinceId)? provinceSelected,
+    TResult? Function(String? city)? citySelected,
+  }) {
+    return citySelected?.call(city);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String text)? onUserEvent,
+    TResult Function(String provinceId)? provinceSelected,
+    TResult Function(String? city)? citySelected,
+    required TResult orElse(),
+  }) {
+    if (citySelected != null) {
+      return citySelected(city);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(OnUserEvent value) onUserEvent,
+    required TResult Function(ProvinceSelected value) provinceSelected,
+    required TResult Function(CitySelected value) citySelected,
+  }) {
+    return citySelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(OnUserEvent value)? onUserEvent,
+    TResult? Function(ProvinceSelected value)? provinceSelected,
+    TResult? Function(CitySelected value)? citySelected,
+  }) {
+    return citySelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(OnUserEvent value)? onUserEvent,
+    TResult Function(ProvinceSelected value)? provinceSelected,
+    TResult Function(CitySelected value)? citySelected,
+    required TResult orElse(),
+  }) {
+    if (citySelected != null) {
+      return citySelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CitySelected implements UserEvent {
+  const factory CitySelected(final String? city) = _$CitySelectedImpl;
+
+  String? get city;
+
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CitySelectedImplCopyWith<_$CitySelectedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -235,18 +529,27 @@ mixin _$UserState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String result) loaded,
+    required TResult Function(String? selectedProvinceId,
+            List<String> filteredCities, String? selectedCity)
+        provinceAndCity,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(String result)? loaded,
+    TResult? Function(String? selectedProvinceId, List<String> filteredCities,
+            String? selectedCity)?
+        provinceAndCity,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String result)? loaded,
+    TResult Function(String? selectedProvinceId, List<String> filteredCities,
+            String? selectedCity)?
+        provinceAndCity,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -254,18 +557,21 @@ mixin _$UserState {
   TResult map<TResult extends Object?>({
     required TResult Function(InitialUserState value) initial,
     required TResult Function(LoadedUserState value) loaded,
+    required TResult Function(ProvinceAndCityState value) provinceAndCity,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InitialUserState value)? initial,
     TResult? Function(LoadedUserState value)? loaded,
+    TResult? Function(ProvinceAndCityState value)? provinceAndCity,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InitialUserState value)? initial,
     TResult Function(LoadedUserState value)? loaded,
+    TResult Function(ProvinceAndCityState value)? provinceAndCity,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -334,6 +640,9 @@ class _$InitialUserStateImpl implements InitialUserState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String result) loaded,
+    required TResult Function(String? selectedProvinceId,
+            List<String> filteredCities, String? selectedCity)
+        provinceAndCity,
   }) {
     return initial();
   }
@@ -343,6 +652,9 @@ class _$InitialUserStateImpl implements InitialUserState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(String result)? loaded,
+    TResult? Function(String? selectedProvinceId, List<String> filteredCities,
+            String? selectedCity)?
+        provinceAndCity,
   }) {
     return initial?.call();
   }
@@ -352,6 +664,9 @@ class _$InitialUserStateImpl implements InitialUserState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String result)? loaded,
+    TResult Function(String? selectedProvinceId, List<String> filteredCities,
+            String? selectedCity)?
+        provinceAndCity,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -365,6 +680,7 @@ class _$InitialUserStateImpl implements InitialUserState {
   TResult map<TResult extends Object?>({
     required TResult Function(InitialUserState value) initial,
     required TResult Function(LoadedUserState value) loaded,
+    required TResult Function(ProvinceAndCityState value) provinceAndCity,
   }) {
     return initial(this);
   }
@@ -374,6 +690,7 @@ class _$InitialUserStateImpl implements InitialUserState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InitialUserState value)? initial,
     TResult? Function(LoadedUserState value)? loaded,
+    TResult? Function(ProvinceAndCityState value)? provinceAndCity,
   }) {
     return initial?.call(this);
   }
@@ -383,6 +700,7 @@ class _$InitialUserStateImpl implements InitialUserState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InitialUserState value)? initial,
     TResult Function(LoadedUserState value)? loaded,
+    TResult Function(ProvinceAndCityState value)? provinceAndCity,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -467,6 +785,9 @@ class _$LoadedUserStateImpl implements LoadedUserState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String result) loaded,
+    required TResult Function(String? selectedProvinceId,
+            List<String> filteredCities, String? selectedCity)
+        provinceAndCity,
   }) {
     return loaded(result);
   }
@@ -476,6 +797,9 @@ class _$LoadedUserStateImpl implements LoadedUserState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(String result)? loaded,
+    TResult? Function(String? selectedProvinceId, List<String> filteredCities,
+            String? selectedCity)?
+        provinceAndCity,
   }) {
     return loaded?.call(result);
   }
@@ -485,6 +809,9 @@ class _$LoadedUserStateImpl implements LoadedUserState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String result)? loaded,
+    TResult Function(String? selectedProvinceId, List<String> filteredCities,
+            String? selectedCity)?
+        provinceAndCity,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -498,6 +825,7 @@ class _$LoadedUserStateImpl implements LoadedUserState {
   TResult map<TResult extends Object?>({
     required TResult Function(InitialUserState value) initial,
     required TResult Function(LoadedUserState value) loaded,
+    required TResult Function(ProvinceAndCityState value) provinceAndCity,
   }) {
     return loaded(this);
   }
@@ -507,6 +835,7 @@ class _$LoadedUserStateImpl implements LoadedUserState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InitialUserState value)? initial,
     TResult? Function(LoadedUserState value)? loaded,
+    TResult? Function(ProvinceAndCityState value)? provinceAndCity,
   }) {
     return loaded?.call(this);
   }
@@ -516,6 +845,7 @@ class _$LoadedUserStateImpl implements LoadedUserState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InitialUserState value)? initial,
     TResult Function(LoadedUserState value)? loaded,
+    TResult Function(ProvinceAndCityState value)? provinceAndCity,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -535,4 +865,197 @@ abstract class LoadedUserState implements UserState {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadedUserStateImplCopyWith<_$LoadedUserStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ProvinceAndCityStateImplCopyWith<$Res> {
+  factory _$$ProvinceAndCityStateImplCopyWith(_$ProvinceAndCityStateImpl value,
+          $Res Function(_$ProvinceAndCityStateImpl) then) =
+      __$$ProvinceAndCityStateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {String? selectedProvinceId,
+      List<String> filteredCities,
+      String? selectedCity});
+}
+
+/// @nodoc
+class __$$ProvinceAndCityStateImplCopyWithImpl<$Res>
+    extends _$UserStateCopyWithImpl<$Res, _$ProvinceAndCityStateImpl>
+    implements _$$ProvinceAndCityStateImplCopyWith<$Res> {
+  __$$ProvinceAndCityStateImplCopyWithImpl(_$ProvinceAndCityStateImpl _value,
+      $Res Function(_$ProvinceAndCityStateImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? selectedProvinceId = freezed,
+    Object? filteredCities = null,
+    Object? selectedCity = freezed,
+  }) {
+    return _then(_$ProvinceAndCityStateImpl(
+      selectedProvinceId: freezed == selectedProvinceId
+          ? _value.selectedProvinceId
+          : selectedProvinceId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      filteredCities: null == filteredCities
+          ? _value._filteredCities
+          : filteredCities // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      selectedCity: freezed == selectedCity
+          ? _value.selectedCity
+          : selectedCity // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ProvinceAndCityStateImpl implements ProvinceAndCityState {
+  const _$ProvinceAndCityStateImpl(
+      {required this.selectedProvinceId,
+      required final List<String> filteredCities,
+      this.selectedCity})
+      : _filteredCities = filteredCities;
+
+  @override
+  final String? selectedProvinceId;
+  final List<String> _filteredCities;
+  @override
+  List<String> get filteredCities {
+    if (_filteredCities is EqualUnmodifiableListView) return _filteredCities;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_filteredCities);
+  }
+
+  @override
+  final String? selectedCity;
+
+  @override
+  String toString() {
+    return 'UserState.provinceAndCity(selectedProvinceId: $selectedProvinceId, filteredCities: $filteredCities, selectedCity: $selectedCity)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ProvinceAndCityStateImpl &&
+            (identical(other.selectedProvinceId, selectedProvinceId) ||
+                other.selectedProvinceId == selectedProvinceId) &&
+            const DeepCollectionEquality()
+                .equals(other._filteredCities, _filteredCities) &&
+            (identical(other.selectedCity, selectedCity) ||
+                other.selectedCity == selectedCity));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, selectedProvinceId,
+      const DeepCollectionEquality().hash(_filteredCities), selectedCity);
+
+  /// Create a copy of UserState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ProvinceAndCityStateImplCopyWith<_$ProvinceAndCityStateImpl>
+      get copyWith =>
+          __$$ProvinceAndCityStateImplCopyWithImpl<_$ProvinceAndCityStateImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String result) loaded,
+    required TResult Function(String? selectedProvinceId,
+            List<String> filteredCities, String? selectedCity)
+        provinceAndCity,
+  }) {
+    return provinceAndCity(selectedProvinceId, filteredCities, selectedCity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String result)? loaded,
+    TResult? Function(String? selectedProvinceId, List<String> filteredCities,
+            String? selectedCity)?
+        provinceAndCity,
+  }) {
+    return provinceAndCity?.call(
+        selectedProvinceId, filteredCities, selectedCity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String result)? loaded,
+    TResult Function(String? selectedProvinceId, List<String> filteredCities,
+            String? selectedCity)?
+        provinceAndCity,
+    required TResult orElse(),
+  }) {
+    if (provinceAndCity != null) {
+      return provinceAndCity(selectedProvinceId, filteredCities, selectedCity);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialUserState value) initial,
+    required TResult Function(LoadedUserState value) loaded,
+    required TResult Function(ProvinceAndCityState value) provinceAndCity,
+  }) {
+    return provinceAndCity(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitialUserState value)? initial,
+    TResult? Function(LoadedUserState value)? loaded,
+    TResult? Function(ProvinceAndCityState value)? provinceAndCity,
+  }) {
+    return provinceAndCity?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialUserState value)? initial,
+    TResult Function(LoadedUserState value)? loaded,
+    TResult Function(ProvinceAndCityState value)? provinceAndCity,
+    required TResult orElse(),
+  }) {
+    if (provinceAndCity != null) {
+      return provinceAndCity(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ProvinceAndCityState implements UserState {
+  const factory ProvinceAndCityState(
+      {required final String? selectedProvinceId,
+      required final List<String> filteredCities,
+      final String? selectedCity}) = _$ProvinceAndCityStateImpl;
+
+  String? get selectedProvinceId;
+  List<String> get filteredCities;
+  String? get selectedCity;
+
+  /// Create a copy of UserState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ProvinceAndCityStateImplCopyWith<_$ProvinceAndCityStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/presentation/feature/user/widget/input_name.dart';
-// ignore: depend_on_referenced_packages
-import 'package:dropdown_search/dropdown_search.dart';
 
-import '../widget/list_city.dart';
-import '../widget/list_province.dart';
+import '../widget/search_city.dart';
+import '../widget/search_province.dart';
 
 class UserView extends StatelessWidget {
   UserView({super.key});
@@ -14,47 +12,29 @@ class UserView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Container(
-        decoration: const BoxDecoration(),
-        child: ListView(
-          physics: const BouncingScrollPhysics(),
+        child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 32),
-          children: [
-            const SizedBox(
-              height: 50,
-            ),
-            InputName(nameText: nameText),
-            const SizedBox(
-              height: 20,
-            ),
-            DropdownSearch<String>(
-              items: (f, cs) => listProvinsi.map((e) => e.name).toList(),
-              popupProps: PopupProps.menu(
-                  disabledItemFn: (item) => item == 'Jawa Tengah',
-                  fit: FlexFit.loose),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            DropdownSearch<String>(
-              items: (f, cs) => listKota.map((e) => e.name).toList(),
-              popupProps: PopupProps.menu(
-                  disabledItemFn: (item) => item == 'Bogor',
-                  fit: FlexFit.loose),
-            ),
-                        const SizedBox(
-              height: 20,
-            ),
-            TextButton(onPressed: (){}, child: const Text('Masuk'))
-          ],
+          child: ListView(
+            physics: const BouncingScrollPhysics(),
+            children: [
+              const SizedBox(height: 50),
+              InputName(nameText: nameText),
+              const SizedBox(height: 20),
+              const SearchProvinces(),
+              const SizedBox(height: 20),
+              const SearchCity(),
+              const SizedBox(height: 20),
+              TextButton(
+                onPressed: () {},
+                child: const Text('Masuk'),
+              ),
+            ],
+          ),
         ),
-      )),
+      ),
     );
   }
 }
-
-
-
 
 
 
