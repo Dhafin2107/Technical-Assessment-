@@ -33,7 +33,6 @@ class SubmitName extends StatelessWidget {
             );
           }
         }
-        print('error');
       },
       style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xFF2B637B),

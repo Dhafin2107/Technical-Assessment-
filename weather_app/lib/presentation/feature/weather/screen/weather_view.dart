@@ -1,84 +1,122 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
+import '../../../global/helper/date_time.dart';
 import '../bloc/weather_bloc.dart';
+import '../widget/list_weathers.dart';
 
 class WeatherView extends StatelessWidget {
   const WeatherView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Menerima arguments dari halaman sebelumnya
     final Map<String, dynamic>? args =
         ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
 
-    String name = args?['name'];
-    String cityName = args?['cityName'];
+    String name = args?['name'] ?? 'Pengguna';
+    String cityName = args?['cityName'] ?? 'Kota';
 
-    // Pastikan cityName tidak null
-    // if (cityName == null) {
-    //   return Scaffold(
-    //     appBar: AppBar(
-    //       title: const Text('Error'),
-    //     ),
-    //     body: const Center(
-    //       child: Text('City name is required'),
-    //     ),
-    //   );
-    // }
+    final String selamat = getGreeting();
 
-    // Menginisiasi BlocProvider dengan cityName yang dikirim dari arguments
     return BlocProvider(
       create: (context) =>
           WeatherBloc(cityName)..add(const WeatherEvent.onFetchWeatherEvent()),
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Weather Page for $name'),
-        ),
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-            child: Container(
-              decoration: const BoxDecoration(
-                color: Color(0xFFFFFBFE),
-                borderRadius: BorderRadius.vertical(
-                  top: Radius.circular(16.0),
-                ),
-              ),
-              height: double.infinity,
-              padding: const EdgeInsets.all(16.0),
-              child: BlocBuilder<WeatherBloc, WeatherState>(
-                builder: (context, state) {
-                  if (state is WeatherLoadingState) {
-                    return const Center(
-                      child: CircularProgressIndicator.adaptive(),
-                    );
-                  }
-                  if (state is WeatherloadedState) {
-                    return ListView.separated(
-                      physics: const BouncingScrollPhysics(),
-                      itemBuilder: (context, index) {
-                        final item = state.listAllWeather[index];
-                        return Text(item.dt.toString(),
-                            style: const TextStyle(
-                              color: Colors.black,
-                            ));
-                      },
-                      separatorBuilder: (context, index) =>
-                          const SizedBox(height: 16.0),
-                      itemCount: state.listAllWeather.length,
-                    );
-                  }
-                  if (state is WeatherErrorState) {
-                    return Center(
-                      child: Text('Error: ${state.message}'),
-                    );
-                  }
-                  return const SizedBox();
-                },
+          toolbarHeight: 90,
+          backgroundColor: Colors.lightBlue,
+          title: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            child: Center(
+              child: Column(
+                children: [
+                  Text(
+                    cityName.toString(),
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                  const SizedBox(height: 5),
+                  Text(
+                    getWaktuLengkap(),
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                ],
               ),
             ),
           ),
+        ),
+        body: BlocBuilder<WeatherBloc, WeatherState>(
+          builder: (context, state) {
+            if (state is WeatherLoadingState) {
+              return const Center(
+                child: CircularProgressIndicator.adaptive(),
+              );
+            }
+            if (state is WeatherloadedState) {
+              final item = state.listAllWeather[0];
+              double tempCelsius = item.temperature!.temp - 273.15;
+              String formattedTempCelsius = tempCelsius.toStringAsFixed(1);
+              Map<String, List> groupedWeather = {};
+              for (var item in state.listAllWeather) {
+                DateTime dateTime = DateTime.parse(item.dateText);
+                String date = DateFormat('yyyy-MM-dd').format(dateTime);
+                String today = DateFormat('yyyy-MM-dd').format(DateTime.now());
+                if (date == today) continue;
+
+                if (groupedWeather.containsKey(date)) {
+                  groupedWeather[date]!.add(item);
+                } else {
+                  groupedWeather[date] = [item];
+                }
+              }
+
+              return Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "$selamat, $name",
+                              style: const TextStyle(fontSize: 18),
+                            ),
+                            Text(
+                              item.weather![0].main,
+                              style: const TextStyle(fontSize: 18),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              '$formattedTempCelsius °C',
+                              style: const TextStyle(fontSize: 18),
+                            ),
+                            Image.network(
+                              "http://openweathermap.org/img/wn/${item.weather![0].icon}.png",
+                              width: 50,
+                              height: 50,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  ListWeather(groupedWeather: groupedWeather),
+                ],
+              );
+            }
+            if (state is WeatherErrorState) {
+              return Center(
+                child: Text('Error: ${state.message}'),
+              );
+            }
+            return const SizedBox();
+          },
         ),
       ),
     );

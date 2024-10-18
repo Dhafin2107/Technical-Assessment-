@@ -9,7 +9,6 @@ class UserView extends StatelessWidget {
   UserView({super.key});
   final TextEditingController nameText = TextEditingController();
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
