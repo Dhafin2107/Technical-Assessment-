@@ -6,8 +6,9 @@ import 'package:dropdown_search/dropdown_search.dart';
 import '../bloc/user_bloc.dart';
 
 class SearchCity extends StatelessWidget {
+
   const SearchCity({
-    super.key,
+    super.key, 
   });
 
   @override

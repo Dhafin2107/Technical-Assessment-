@@ -17,7 +17,6 @@ class WeatherRemoteDataSourceImpl extends WeatherRemoteDatasource {
   @override
   Future<Either<Failure, ListAllWeather>> fetchWeatherGetFromServer(
       String cityName) async {
-    String cityName = 'papua';
     try {
       final Request request = serviceLocatorInstance<Request>();
 

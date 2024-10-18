@@ -4,12 +4,16 @@ import 'package:flutter/foundation.dart';
 import '../data/api_endpoints.dart';
 import '../data/types.dart';
 
-
 class Request {
   final Dio _dio = Dio();
 
   Request() {
     updateDioInterceptors();
+  }
+
+  /// Fungsi ini digunakan untuk memperbarui header authorization
+  void updateAuthorization(String token) {
+    _dio.options.headers['authorization'] = 'Bearer $token';
   }
 
   /// Fungsi ini digunakan untuk memperbarui konfigurasi dio interceptors
@@ -41,12 +45,16 @@ class Request {
               print(e.response);
             }
             if (e.response?.statusCode == 401) {
-
+              if (kDebugMode) {
+                print('UNAUTHORIZED ========');
+              }
             }
             return handler.next(e);
           },
           onResponse: (e, handler) {
-            
+            // if (e.statusCode == 401) {
+            //   _handleUnauthorized();
+            // }
             return handler.next(e);
           },
         ),
@@ -54,31 +62,25 @@ class Request {
   }
 
   /// Fungsi ini digunakan untuk melakukan GET request
-  Future<Response> get(String path,
-      {JSON? queryParameters}) async {
+  Future<Response> get(String path, {JSON? queryParameters}) async {
     return await _dio.get(path, queryParameters: queryParameters);
   }
 
   /// Fungsi ini digunakan untuk melakukan POST request
   Future<Response> post(String path,
-      {Object? data,
-      JSON? queryParameters}) async {
+      {Object? data, JSON? queryParameters}) async {
     return await _dio.post(path, queryParameters: queryParameters, data: data);
   }
 
   /// Fungsi ini digunakan untuk melakukan DELETE request
-  Future<Response> delete(String path,
-      {Object? data}) async {
+  Future<Response> delete(String path, {Object? data}) async {
     return await _dio.delete(path, data: data);
   }
 
   /// Fungsi ini digunakan untuk melakukan PUT request
   Future<Response> put(String path,
-      {Object? data,
-      JSON? queryParameters}) async {
+      {Object? data, JSON? queryParameters}) async {
     return await _dio.put(path, data: data, queryParameters: queryParameters);
   }
 
-
-  }
-
+}

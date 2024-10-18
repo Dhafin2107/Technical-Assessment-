@@ -16,20 +16,19 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$WeatherEvent {
-  dynamic get cityName => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic cityName) onFetchWeatherEvent,
+    required TResult Function() onFetchWeatherEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic cityName)? onFetchWeatherEvent,
+    TResult? Function()? onFetchWeatherEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic cityName)? onFetchWeatherEvent,
+    TResult Function()? onFetchWeatherEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -49,12 +48,6 @@ mixin _$WeatherEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
-  /// Create a copy of WeatherEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $WeatherEventCopyWith<WeatherEvent> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -62,8 +55,6 @@ abstract class $WeatherEventCopyWith<$Res> {
   factory $WeatherEventCopyWith(
           WeatherEvent value, $Res Function(WeatherEvent) then) =
       _$WeatherEventCopyWithImpl<$Res, WeatherEvent>;
-  @useResult
-  $Res call({dynamic cityName});
 }
 
 /// @nodoc
@@ -78,29 +69,13 @@ class _$WeatherEventCopyWithImpl<$Res, $Val extends WeatherEvent>
 
   /// Create a copy of WeatherEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? cityName = freezed,
-  }) {
-    return _then(_value.copyWith(
-      cityName: freezed == cityName
-          ? _value.cityName
-          : cityName // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$FetchWeatherEventImplCopyWith<$Res>
-    implements $WeatherEventCopyWith<$Res> {
+abstract class _$$FetchWeatherEventImplCopyWith<$Res> {
   factory _$$FetchWeatherEventImplCopyWith(_$FetchWeatherEventImpl value,
           $Res Function(_$FetchWeatherEventImpl) then) =
       __$$FetchWeatherEventImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({dynamic cityName});
 }
 
 /// @nodoc
@@ -113,75 +88,51 @@ class __$$FetchWeatherEventImplCopyWithImpl<$Res>
 
   /// Create a copy of WeatherEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? cityName = freezed,
-  }) {
-    return _then(_$FetchWeatherEventImpl(
-      freezed == cityName ? _value.cityName! : cityName,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$FetchWeatherEventImpl implements FetchWeatherEvent {
-  const _$FetchWeatherEventImpl(this.cityName);
-
-  @override
-  final dynamic cityName;
+  const _$FetchWeatherEventImpl();
 
   @override
   String toString() {
-    return 'WeatherEvent.onFetchWeatherEvent(cityName: $cityName)';
+    return 'WeatherEvent.onFetchWeatherEvent()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchWeatherEventImpl &&
-            const DeepCollectionEquality().equals(other.cityName, cityName));
+        (other.runtimeType == runtimeType && other is _$FetchWeatherEventImpl);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(cityName));
-
-  /// Create a copy of WeatherEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FetchWeatherEventImplCopyWith<_$FetchWeatherEventImpl> get copyWith =>
-      __$$FetchWeatherEventImplCopyWithImpl<_$FetchWeatherEventImpl>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(dynamic cityName) onFetchWeatherEvent,
+    required TResult Function() onFetchWeatherEvent,
   }) {
-    return onFetchWeatherEvent(cityName);
+    return onFetchWeatherEvent();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(dynamic cityName)? onFetchWeatherEvent,
+    TResult? Function()? onFetchWeatherEvent,
   }) {
-    return onFetchWeatherEvent?.call(cityName);
+    return onFetchWeatherEvent?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(dynamic cityName)? onFetchWeatherEvent,
+    TResult Function()? onFetchWeatherEvent,
     required TResult orElse(),
   }) {
     if (onFetchWeatherEvent != null) {
-      return onFetchWeatherEvent(cityName);
+      return onFetchWeatherEvent();
     }
     return orElse();
   }
@@ -216,18 +167,7 @@ class _$FetchWeatherEventImpl implements FetchWeatherEvent {
 }
 
 abstract class FetchWeatherEvent implements WeatherEvent {
-  const factory FetchWeatherEvent(final dynamic cityName) =
-      _$FetchWeatherEventImpl;
-
-  @override
-  dynamic get cityName;
-
-  /// Create a copy of WeatherEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FetchWeatherEventImplCopyWith<_$FetchWeatherEventImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory FetchWeatherEvent() = _$FetchWeatherEventImpl;
 }
 
 /// @nodoc
