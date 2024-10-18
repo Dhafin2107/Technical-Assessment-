@@ -54,11 +54,16 @@ List<City> listKota = [
   const City(id: '30', name: 'Bogor', provinceId: '13'),
   const City(id: '31', name: 'Cirebon', provinceId: '13'),
   const City(id: '32', name: 'Sumedang', provinceId: '13'),
+  const City(id: '76', name: 'Depok', provinceId: '13'),
+  const City(id: '77', name: 'Sukabumi', provinceId: '13'),
 
   // Jawa Tengah
   const City(id: '33', name: 'Semarang', provinceId: '14'),
   const City(id: '34', name: 'Solo', provinceId: '14'),
   const City(id: '35', name: 'Magelang', provinceId: '14'),
+  const City(id: '37', name: 'Pati', provinceId: '14'),
+  const City(id: '38', name: 'Kudus', provinceId: '14'),
+  const City(id: '39', name: 'Banyumas', provinceId: '14'),
 
   // DI Yogyakarta
   const City(id: '36', name: 'Yogyakarta', provinceId: '15'),
@@ -67,6 +72,9 @@ List<City> listKota = [
   const City(id: '37', name: 'Surabaya', provinceId: '16'),
   const City(id: '38', name: 'Malang', provinceId: '16'),
   const City(id: '39', name: 'Madiun', provinceId: '16'),
+  const City(id: '44', name: 'Blitar', provinceId: '16'),
+  const City(id: '45', name: 'Jember', provinceId: '16'),
+  const City(id: '46', name: 'Kediri', provinceId: '16'),
 
   // Bali
   const City(id: '40', name: 'Denpasar', provinceId: '17'),

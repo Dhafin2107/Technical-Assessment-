@@ -10,14 +10,8 @@ part 'user_bloc.freezed.dart';
 class UserBloc extends Bloc<UserEvent, UserState> {
  
   UserBloc() : super(const UserState.initial()) {
-    on<OnUserEvent>(_onUserEvent);
     on<ProvinceSelected>(_onProvinceSelected);
     on<CitySelected>(_onCitySelected);
-  }
-  void _onUserEvent(OnUserEvent event, Emitter<UserState> emit) {
-    String result;
-    result = 'name';
-    emit(UserState.loaded(result));
   }
 
   void _onProvinceSelected(ProvinceSelected event, Emitter<UserState> emit) {

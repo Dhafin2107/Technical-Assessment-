@@ -23,9 +23,10 @@ class WeatherView extends StatelessWidget {
       create: (context) =>
           WeatherBloc(cityName)..add(const WeatherEvent.onFetchWeatherEvent()),
       child: Scaffold(
+        backgroundColor: Colors.grey[200],
         appBar: AppBar(
           toolbarHeight: 90,
-          backgroundColor: Colors.lightBlue,
+          backgroundColor: Colors.grey[200],
           title: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10),
             child: Center(
@@ -33,12 +34,17 @@ class WeatherView extends StatelessWidget {
                 children: [
                   Text(
                     cityName.toString(),
-                    style: const TextStyle(color: Colors.white),
+                    style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold),
                   ),
-                  const SizedBox(height: 5),
                   Text(
                     getWaktuLengkap(),
-                    style: const TextStyle(color: Colors.white),
+                    style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.normal),
                   ),
                 ],
               ),
@@ -73,7 +79,7 @@ class WeatherView extends StatelessWidget {
               return Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 16),
                     child: Column(
                       children: [
                         Row(
@@ -94,7 +100,7 @@ class WeatherView extends StatelessWidget {
                           children: [
                             Text(
                               '$formattedTempCelsius °C',
-                              style: const TextStyle(fontSize: 18),
+                              style: const TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
                             ),
                             Image.network(
                               "http://openweathermap.org/img/wn/${item.weather![0].icon}.png",

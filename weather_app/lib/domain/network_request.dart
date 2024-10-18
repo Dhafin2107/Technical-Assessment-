@@ -46,15 +46,12 @@ class Request {
             }
             if (e.response?.statusCode == 401) {
               if (kDebugMode) {
-                print('UNAUTHORIZED ========');
+                print('statusCode 401');
               }
             }
             return handler.next(e);
           },
           onResponse: (e, handler) {
-            // if (e.statusCode == 401) {
-            //   _handleUnauthorized();
-            // }
             return handler.next(e);
           },
         ),
